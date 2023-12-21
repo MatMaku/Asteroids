@@ -4,19 +4,22 @@ using UnityEngine;
 public class ControladorJuego : MonoBehaviour
 {
     public Jugador jugador;
+    public ParticleSystem Explosión;
 
     public int Vidas = 3;
+    public int Puntuación = 0;
     public float TiempoDeReaparición = 3.0f;
 
-    private SpriteRenderer sr;
-
-    private void Awake()
+    public void AsteroideDestruido(Asteroide asteroide)
     {
-        sr = this.jugador.GetComponent<SpriteRenderer>();
+        this.Explosión.transform.position = asteroide.transform.position;
+        this.Explosión.Play();
     }
-
     public void Muerte ()
     {
+        this.Explosión.transform.position = this.jugador.transform.position;
+        this.Explosión.Play();
+
         this.Vidas--;
 
         if (this.Vidas <= 0)

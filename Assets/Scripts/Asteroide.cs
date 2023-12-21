@@ -51,6 +51,7 @@ public class Asteroide : MonoBehaviour, IColisión
                 Dividir();
             }
 
+            FindObjectOfType<ControladorJuego>().AsteroideDestruido(this);
             Destroy(this.gameObject);
         }
     }
