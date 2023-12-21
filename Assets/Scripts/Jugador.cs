@@ -3,8 +3,8 @@ using UnityEngine;
 public class Jugador : MonoBehaviour
 {
     //Disparo
-    [SerializeField] private Transform ControladorDisparo;
-    [SerializeField] private GameObject bala;
+    public Transform ControladorDisparo;
+    public GameObject bala;
 
     //Movimiento
     public float Velocidad = 1.0f;
