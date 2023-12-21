@@ -59,6 +59,7 @@ MonoBehaviour:
   "Tama\xF1o": 1
   "Tama\xF1oMin": 0.5
   "Tama\xF1oMax": 1.5
+  Sonido: {fileID: 4327858882793438565, guid: ba170c2cb48731e4dbe8982b23eea096, type: 3}
 --- !u!212 &7678322168249509814
 SpriteRenderer:
   m_ObjectHideFlags: 0

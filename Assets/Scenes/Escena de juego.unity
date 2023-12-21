@@ -2936,6 +2936,7 @@ MonoBehaviour:
   bala: {fileID: 8594756916753738827, guid: c15d3b19b5bd371499df4af9fbc96f02, type: 3}
   Velocidad: 1.8
   "Rotaci\xF3n": 1.8
+  Sonido: {fileID: 1169170703311774073, guid: c32e900afef3f234d9fa1aba26167386, type: 3}
 --- !u!4 &1171514935
 Transform:
   m_ObjectHideFlags: 0
@@ -3550,6 +3551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextoPuntosMax: {fileID: 1473635382}
+  Sonido: {fileID: 7049364372000586053, guid: 3f52709b675c37747a6d56a07ddff6be, type: 3}
 --- !u!4 &1459302028
 Transform:
   m_ObjectHideFlags: 0

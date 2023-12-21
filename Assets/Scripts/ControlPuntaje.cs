@@ -11,6 +11,10 @@ public class ControlPuntaje : MonoBehaviour
 
     private int PuntajeMax;
 
+    private bool Supero = false;
+
+    public GameObject Sonido;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,7 +34,14 @@ public class ControlPuntaje : MonoBehaviour
 
     public void ComprobarPuntos(int Puntos)
     {
-        if (Puntos > PuntajeMax)
+        if (Puntos > PuntajeMax && Supero == false)
+        {
+            Instantiate(Sonido);
+            PuntajeMax = Puntos;
+            PlayerPrefs.SetInt("PuntajeMaximo", PuntajeMax);
+            Supero = true;
+        }
+        else if (Puntos > PuntajeMax)
         {
             PuntajeMax = Puntos;
             PlayerPrefs.SetInt("PuntajeMaximo", PuntajeMax);

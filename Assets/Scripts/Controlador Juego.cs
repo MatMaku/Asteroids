@@ -32,6 +32,7 @@ public class ControladorJuego : MonoBehaviour
 
         this.Puntaje += asteroide.Valor;
         TextoPuntos.text = Puntaje.ToString();
+        FindObjectOfType<ControlPuntaje>().ComprobarPuntos(Puntaje);
     }
     public void Muerte ()
     {
@@ -73,9 +74,7 @@ public class ControladorJuego : MonoBehaviour
     }
 
     private void Perdiste()
-    {
-        FindObjectOfType<ControlPuntaje>().ComprobarPuntos(Puntaje);
-        
+    {   
         MenuPausaPerdiste.SetActive(true);
     }
 

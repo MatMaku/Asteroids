@@ -17,6 +17,8 @@ public class Asteroide : MonoBehaviour, IColisión
     private SpriteRenderer sr;
     private Rigidbody2D rb;
 
+    public GameObject Sonido;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +51,7 @@ public class Asteroide : MonoBehaviour, IColisión
         {
             if (Vida == 1)
             {
+                Instantiate(Sonido);
                 if ((this.Tamaño * 0.5f) > this.TamañoMin)
                 {
                     Dividir();

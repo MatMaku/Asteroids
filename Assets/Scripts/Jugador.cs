@@ -13,6 +13,8 @@ public class Jugador : MonoBehaviour, IColisión
     private bool Avanzar;
     private float Dirección;
 
+    public GameObject Sonido;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,6 +63,8 @@ public class Jugador : MonoBehaviour, IColisión
     {
         if (collision.gameObject.tag == "Enemigo")
         {
+            Instantiate(Sonido);
+
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0.0f;
 
