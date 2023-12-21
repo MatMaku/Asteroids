@@ -26,6 +26,11 @@ public class ControladorAsteroides : MonoBehaviour
 
             Asteroide asteroide = Instantiate(this.AsteroidePrefab, PuntoDeAparición, Rotación);
             asteroide.Tamaño = Random.Range(asteroide.TamañoMin, asteroide.TamañoMax);
+            if ((asteroide.Tamaño * 0.5f) > asteroide.TamañoMin)
+            {
+                asteroide.Vida = 2;
+                asteroide.Valor = 50;
+            }
             asteroide.MoverAsteroide(Rotación * -LugarDeAparición);
         }
     }

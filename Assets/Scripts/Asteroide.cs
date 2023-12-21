@@ -4,6 +4,8 @@ public class Asteroide : MonoBehaviour, IColisión
 {
     public Sprite[] Sprites;
 
+    public int Vida = 1;
+    public int Valor = 25;
     public float Velocidad = 8.0f;
     public float TiempoDeVida = 15.0f;
 
@@ -45,14 +47,21 @@ public class Asteroide : MonoBehaviour, IColisión
     {
         if (collision.gameObject.tag == "Bala")
         {
-            if ((this.Tamaño * 0.5f) > this.TamañoMin)
+            if (Vida == 1)
             {
-                Dividir();
-                Dividir();
-            }
+                if ((this.Tamaño * 0.5f) > this.TamañoMin)
+                {
+                    Dividir();
+                    Dividir();
+                }
 
-            FindObjectOfType<ControladorJuego>().AsteroideDestruido(this);
-            Destroy(this.gameObject);
+                FindObjectOfType<ControladorJuego>().AsteroideDestruido(this);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Vida--;
+            }
         }
     }
     private void Dividir()
@@ -62,6 +71,7 @@ public class Asteroide : MonoBehaviour, IColisión
 
         Asteroide Mitad = Instantiate(this, Posición, this.transform.rotation);
         Mitad.Tamaño = this.Tamaño * 0.5f;
+        Mitad.Vida = 1;
         Mitad.MoverAsteroide(Random.insideUnitCircle.normalized * (this.Velocidad * 0.5f));
     }
 }
