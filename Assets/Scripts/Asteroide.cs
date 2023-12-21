@@ -12,17 +12,17 @@ public class Asteroide : MonoBehaviour, IColisión
     public float TamañoMax = 1.5f;
 
     private Vector2 Dirección;
-    private SpriteRenderer sp;
+    private SpriteRenderer sr;
     private Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        sp = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
-        sp.sprite = Sprites[Random.Range(0, Sprites.Length)];
+        sr.sprite = Sprites[Random.Range(0, Sprites.Length)];
 
         this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
         this.transform.localScale = Vector3.one * this.Tamaño;
@@ -61,6 +61,6 @@ public class Asteroide : MonoBehaviour, IColisión
 
         Asteroide Mitad = Instantiate(this, Posición, this.transform.rotation);
         Mitad.Tamaño = this.Tamaño * 0.5f;
-        Mitad.MoverAsteroide(Random.insideUnitCircle.normalized);
+        Mitad.MoverAsteroide(Random.insideUnitCircle.normalized * (this.Velocidad * 0.5f));
     }
 }

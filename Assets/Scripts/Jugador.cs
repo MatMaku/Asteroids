@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class Jugador : MonoBehaviour
+public class Jugador : MonoBehaviour, IColisión
 {
-    //Disparo
     public Transform ControladorDisparo;
     public GameObject bala;
 
-    //Movimiento
     public float Velocidad = 1.0f;
     public float Rotación = 1.0f;
 
@@ -22,13 +20,11 @@ public class Jugador : MonoBehaviour
 
     private void Update()
     {
-        //Input de disparo
         if (Input.GetButtonDown("Fire1"))
         {
             Disparar();
         }
 
-        //Inputs de movimiento
         Avanzar = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
         Dirección = Input.GetAxis("Horizontal");
     }
@@ -48,6 +44,24 @@ public class Jugador : MonoBehaviour
         if (Dirección != 0.0f)
         {
             rb.AddTorque(-Dirección * this.Rotación);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DetectarColision(collision);
+    }
+
+    public void DetectarColision(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemigo")
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0.0f;
+
+            this.gameObject.SetActive(false);
+
+            FindObjectOfType<ControladorJuego>().Muerte();
         }
     }
 }
