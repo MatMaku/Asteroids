@@ -2,9 +2,15 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ControladorJuego : MonoBehaviour
 {
+    public AudioMixer Mixer;
+    public Slider SliderMusica;
+    public Slider SliderEfectos;
+
     public Jugador jugador;
     public ParticleSystem Explosión;
 
@@ -15,8 +21,9 @@ public class ControladorJuego : MonoBehaviour
     public GameObject MenuPausaPerdiste;
 
     public int Vidas = 3;
-    public int Puntaje = 0;
     public float TiempoDeReaparición = 3.0f;
+
+    private int Puntaje = 0;
 
     public void AsteroideDestruido(Asteroide asteroide)
     {
@@ -67,6 +74,8 @@ public class ControladorJuego : MonoBehaviour
 
     private void Perdiste()
     {
+        FindObjectOfType<ControlPuntaje>().ComprobarPuntos(Puntaje);
+        
         MenuPausaPerdiste.SetActive(true);
     }
 
@@ -95,5 +104,16 @@ public class ControladorJuego : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void AjustarMusica()
+    {
+        float volumen = SliderMusica.value;
+        Mixer.SetFloat("Musica", volumen);
+    }
+
+    public void AjustarEfectos()
+    {
+        float volumen1 = SliderEfectos.value;
+        Mixer.SetFloat("Efectos", volumen1);
+    }
 }
 

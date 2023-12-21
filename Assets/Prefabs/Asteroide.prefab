@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 189dcb67a09ea34418fb841db27f77d6, type: 3}
   - {fileID: 21300000, guid: 373541d028ac900499f05c4d4ee40f43, type: 3}
   Vida: 1
+  Valor: 25
   Velocidad: 8
   TiempoDeVida: 30
   "Tama\xF1o": 1

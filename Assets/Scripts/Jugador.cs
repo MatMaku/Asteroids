@@ -20,10 +20,14 @@ public class Jugador : MonoBehaviour, IColisión
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Time.timeScale == 1)
         {
-            Disparar();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Disparar();
+            }
         }
+        
 
         Avanzar = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
         Dirección = Input.GetAxis("Horizontal");
