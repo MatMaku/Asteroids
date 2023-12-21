@@ -45,7 +45,6 @@ public class Jugador : MonoBehaviour, IColisión
         if (Avanzar)
         {
             rb.AddForce(this.transform.up * this.Velocidad);
-            rb.position = new Vector2(Mathf.Clamp(rb.position.x, -8.57f, 8.57f), Mathf.Clamp(rb.position.y, -4.68f, 4.68f));
         }
 
         if (Dirección != 0.0f)

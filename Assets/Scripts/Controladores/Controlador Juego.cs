@@ -34,6 +34,16 @@ public class ControladorJuego : MonoBehaviour
         TextoPuntos.text = Puntaje.ToString();
         FindObjectOfType<ControlPuntaje>().ComprobarPuntos(Puntaje);
     }
+
+    public void EnemigoDestruido(Enemigo enemigo)
+    {
+        this.Explosión.transform.position = enemigo.transform.position;
+        this.Explosión.Play();
+
+        this.Puntaje += enemigo.Valor;
+        TextoPuntos.text = Puntaje.ToString();
+        FindObjectOfType<ControlPuntaje>().ComprobarPuntos(Puntaje);
+    }
     public void Muerte ()
     {
         this.Explosión.transform.position = this.jugador.transform.position;
