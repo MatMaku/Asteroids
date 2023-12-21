@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 29663680088673305}
   m_Layer: 8
   m_Name: Asteroide
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,11 +52,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 838759f26473cef4bac68b3295387dfc, type: 3}
   - {fileID: 21300000, guid: 189dcb67a09ea34418fb841db27f77d6, type: 3}
   - {fileID: 21300000, guid: 373541d028ac900499f05c4d4ee40f43, type: 3}
-  Velocidad: 10
+  Velocidad: 8
   TiempoDeVida: 20
   "Tama\xF1o": 1
   "Tama\xF1oMin": 0.5
-  "Tama\xF1oMax": 1.5
+  "Tama\xF1oMax": 2
 --- !u!212 &7678322168249509814
 SpriteRenderer:
   m_ObjectHideFlags: 0

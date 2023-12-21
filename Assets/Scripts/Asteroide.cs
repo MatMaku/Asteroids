@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Asteroide : MonoBehaviour
+public class Asteroide : MonoBehaviour, IColisión
 {
     public Sprite[] Sprites;
 
@@ -29,10 +29,38 @@ public class Asteroide : MonoBehaviour
 
         rb.mass = this.Tamaño;
     }
-    
+
     public void MoverAsteroide(Vector2 Dirección)
     {
         rb.AddForce(Dirección * this.Velocidad);
         Destroy(this.gameObject, this.TiempoDeVida);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        DetectarColision(collision);
+    }
+
+    public void DetectarColision(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bala")
+        {
+            if ((this.Tamaño * 0.5f) > this.TamañoMin)
+            {
+                Dividir();
+                Dividir();
+            }
+
+            Destroy(this.gameObject);
+        }
+    }
+    private void Dividir()
+    {
+        Vector2 Posición = this.transform.position;
+        Posición += Random.insideUnitCircle * 0.5f;
+
+        Asteroide Mitad = Instantiate(this, Posición, this.transform.rotation);
+        Mitad.Tamaño = this.Tamaño * 0.5f;
+        Mitad.MoverAsteroide(Random.insideUnitCircle.normalized);
     }
 }

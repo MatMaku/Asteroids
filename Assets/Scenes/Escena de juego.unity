@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1171514931}
   m_Layer: 6
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,9 +535,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AsteroidePrefab: {fileID: 9201171345412051231, guid: 6eac8b0e3e1504b49af088cd8354a9e9, type: 3}
-  "TiempoDeAparici\xF3n": 2
-  CantidadDeApariciones: 1
-  "DistanciaDeAparici\xF3n": 15
+  "TiempoDeAparici\xF3n": 2.5
+  CantidadDeApariciones: 2
+  "DistanciaDeAparici\xF3n": 10
   "Variaci\xF3nDeTrayectoria": 15
 --- !u!4 &2078122027
 Transform:

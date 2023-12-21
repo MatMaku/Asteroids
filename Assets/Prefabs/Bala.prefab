@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1611391735988563525}
   - component: {fileID: 1015731222195404077}
   - component: {fileID: 5663012638270221164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bala
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
