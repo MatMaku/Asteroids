@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -6,8 +7,12 @@ public class ControladorJuego : MonoBehaviour
 {
     public Jugador jugador;
     public ParticleSystem Explosión;
+
     public GameObject[] VidasPNG;
     public TextMeshProUGUI TextoPuntos;
+
+    public GameObject MenuPausa;
+    public GameObject MenuPausaPerdiste;
 
     public int Vidas = 3;
     public int Puntaje = 0;
@@ -62,7 +67,33 @@ public class ControladorJuego : MonoBehaviour
 
     private void Perdiste()
     {
-        this.Vidas = 3;
-        this.Puntaje = 0;
+        MenuPausaPerdiste.SetActive(true);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MenuPausa.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Resumir()
+    {
+        MenuPausa.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void VolverAlMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
+
